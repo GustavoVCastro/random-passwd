@@ -17,7 +17,7 @@ void passGenerate(char *generatedPasswd, int passSize, int passQty)
 	char numbers[] = "0123456789";
 	char letters[] = "abcdefghijklmnopqrstuvwxyz";
 	char LETTERS[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char symbols[] = "!@#$%&*()[]{}/";
+	char symbols[] = "'!@#$%&*()[]{}|/~^-_<>?;:,.=+`\"";
 
 	int randomType = rand() % 4;
 	
@@ -30,7 +30,7 @@ void passGenerate(char *generatedPasswd, int passSize, int passQty)
 			else if (randomType == 3)
 				generatedPasswd[j] = LETTERS[rand() % 26];
 			else
-				generatedPasswd[j] = symbols[rand() % 14];
+				generatedPasswd[j] = symbols[rand() % 31];
 
 			randomType = randomizer();
 		}
