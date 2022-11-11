@@ -4,22 +4,23 @@
 
 #define MAX 200
 
-int randomizer()
+/* Return randomly a number that corresponds to which string will be selected */
+int randomize()
 {
 	return rand () % 4;
 }
 
-void passGenerate(char *generatedPasswd, int passSize, int passQty)
+void passGenerate(char *generatedPasswd, const int passSize, const int passQty)
 {
 	srand((unsigned int)time(NULL));
 	
 	int i, j;
-	char numbers[] = "0123456789";
-	char letters[] = "abcdefghijklmnopqrstuvwxyz";
-	char LETTERS[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char symbols[] = "'!@#$%&*()[]{}|/~^-_<>?;:,.=+`\"";
+	const char numbers[] = "0123456789";
+	const char letters[] = "abcdefghijklmnopqrstuvwxyz";
+	const char LETTERS[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	const char symbols[] = "'!@#$%&*()[]{}|/~^-_<>?;:,.=+`\"";
 
-	int randomType = rand() % 4;
+	int randomType = randomize();
 	
 	for (i = 0; i < passQty; i++) {
 		for (j = 0; j < passSize; j++) {
@@ -32,7 +33,7 @@ void passGenerate(char *generatedPasswd, int passSize, int passQty)
 			else
 				generatedPasswd[j] = symbols[rand() % 31];
 
-			randomType = randomizer();
+			randomType = randomize();
 		}
 		
 		printf("%s\n", generatedPasswd);
