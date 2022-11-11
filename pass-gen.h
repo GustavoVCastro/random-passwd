@@ -1,1 +1,1 @@
-void passGenerate(char *generatedPasswd, int passSize, int passQty);
+void passGenerate(char *generatedPasswd, const int passSize, const int passQty);
